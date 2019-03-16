@@ -27,6 +27,7 @@ body {
     background-size: cover;
 }
 
+
 /* beer */
 
 .beerCont {
@@ -163,6 +164,7 @@ progress::-moz-progress-bar {
     rotate: 0 deg;
 }
 
+
 /* CSS LICZNIKA CZASU */
 
 .timeContainer {
@@ -198,6 +200,7 @@ progress::-moz-progress-bar {
     text-align: center;
     font-size: 3rem;
 }
+
 
 /* css pop-up'ów game over i epic win */
 
@@ -262,7 +265,8 @@ progress::-moz-progress-bar {
     font-size: 1.5rem;
 }
 
-.playAgain, #start-game {
+.playAgain,
+#start-game {
     display: block;
     font-size: 1.3rem;
     border: 2px solid black;
@@ -277,7 +281,8 @@ progress::-moz-progress-bar {
     color: black;
 }
 
-.playAgain:hover, #start-game:hover {
+.playAgain:hover,
+#start-game:hover {
     background-color: #cdaf82;
     color: black;
 }
@@ -310,18 +315,21 @@ progress::-moz-progress-bar {
     color: black;
 }
 
+
 /* feature 23 */
+
 .beer {
     position: absolute;
-    }
-.beer-img{
+}
+
+.beer-img {
     position: relative;
-    top:14px;
-    left:14px;
+    top: 14px;
+    left: 14px;
     width: 50px;
     height: 50px;
-    background:url("../game/piwko.png") no-repeat center/contain;
-    }
+    background: url("../game/piwko.png") no-repeat center/contain;
+}
 
 .drinking-msg {
     text-align: center;
@@ -353,18 +361,18 @@ progress::-moz-progress-bar {
     }
 }
 
-.level-display{
-    color:white;
+.level-display {
+    color: white;
     font-size: 1.7rem;
     text-align: center;
     /* margin-top: 1.5rem; */
 }
 
-.level-number{
-    color:white;
+.level-number {
+    color: white;
 }
 
-.level-reset{
+.level-reset {
     color: white;
     text-align: center;
     margin: 10px auto;
@@ -374,9 +382,9 @@ progress::-moz-progress-bar {
     border-radius: 10px;
     transition: background-color 0.5s;
 }
+
 .level-reset:hover {
     background-color: #cdaf82;
     color: black;
     border: 1px solid #cdaf82;
 }
-

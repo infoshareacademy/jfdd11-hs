@@ -46,7 +46,6 @@ let game = {
         initialScoreMultiplier: 5, // << stores value for levelReset
     },
     board: {
-        //to miejsce nalezy wyregulowac po ustawieniu awatara gracza coby nie przechodził przez ściany!
         width: gameBoard.offsetWidth - 60,
         height: gameBoard.offsetHeight - 61,
     },
@@ -89,7 +88,7 @@ levelResetBtn.addEventListener('click', levelReset)
 audioStop.addEventListener('click', toggleAudioBackground)
 
 game.time.gameTime = game.time.initialGameTime
-game.player.catchRadius=game.player.initialCatchRadius
+game.player.catchRadius = game.player.initialCatchRadius
 game.beer.amountToSpawn = game.beer.initialAmountToSpawn
 game.player.scoreMultiplier = game.player.initialScoreMultiplier
 
@@ -124,7 +123,7 @@ function reset() {
     game.player.levelProgress = 0
     game.taxi.isComing = false
     game.taxi.position.y = 0
-    game.player.catchRadius=game.player.initialCatchRadius
+    game.player.catchRadius = game.player.initialCatchRadius
     game.time.gameTime = game.time.initialGameTime
     if (document.querySelector('.taxi') !== null) {
         taxiBoard.removeChild(taxi);
@@ -143,8 +142,6 @@ function nextLevel() {
     } else {
         game.beer.amountToSpawn -= 1
     }
-    // console.log('Amount of beers to spawn:' + game.beer.amountToSpawn)
-    // console.log('scoreMultiplier:' + game.player.scoreMultiplier)
     startGame()
 }
 
@@ -266,7 +263,7 @@ function spawnPlayer() {
     gameBoard.appendChild(player)
 }
 
-window.addEventListener('keydown', function (event) {
+window.addEventListener('keydown', function(event) {
     if (event.code === 'ArrowRight') {
         game.player.rotateLeft = true
     }
@@ -281,7 +278,7 @@ window.addEventListener('keydown', function (event) {
     }
 })
 
-window.addEventListener('keyup', function (event) {
+window.addEventListener('keyup', function(event) {
     if (event.code === 'ArrowRight') {
         game.player.rotateLeft = false
     }
@@ -321,7 +318,7 @@ function randomBeerPosition(howMany) {
     let nestedPositions = range.map(y => range.map(x => ({ x, y })))
     let flatPositions = nestedPositions.reduce((result, next) => result.concat(next), [])
     let normalizedPositions = flatPositions.map(pos => ({ x: pos.x * 10 + 5.5, y: pos.y * 10 + 5.5 }))
-    let cssPositions = normalizedPositions.map(pos => ({ ...pos, left: (pos.x - 0) + '%', top: (pos.y - 0) + '%' }))
+    let cssPositions = normalizedPositions.map(pos => ({...pos, left: (pos.x - 0) + '%', top: (pos.y - 0) + '%' }))
     let positions = []
     for (let i = 0; i < howMany; i++) {
 
@@ -353,8 +350,8 @@ function detectBeerCollision() {
         let beerTop = beer.offsetTop
         let beerLeft = beer.offsetLeft
         if (game.player.catchRadius + game.beer.catchRadius > Math.hypot(
-            game.player.position.x - beerLeft,
-            game.player.position.y - beerTop)) {
+                game.player.position.x - beerLeft,
+                game.player.position.y - beerTop)) {
             audioTagBeerUp.play()
             beer.parentElement.removeChild(beer)
             game.player.score += 1
@@ -454,7 +451,7 @@ function beerProgressUp() {
         taxiIsComing();
         taxiSoundDrive.play()
         drinkingMessage('GET TO DA TAXXAA!')
-        game.player.catchRadius=10
+        game.player.catchRadius = 10
         beers = document.querySelectorAll('.beer')
         beers.forEach(beer => {
             beer.parentElement.removeChild(beer)
@@ -513,14 +510,14 @@ function detectTaxiCollision2() {
     }
 }
 //disable arrow keys and spacebar scrolling
-window.addEventListener("keydown", function (e) {
+window.addEventListener("keydown", function(e) {
     if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
     }
 }, false);
 
 //developers only;)
-function dev(levelProgress=100){
+function dev(levelProgress = 100) {
     game.player.levelProgress = levelProgress
     beerProgressUp()
 }
